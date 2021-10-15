@@ -1,0 +1,25 @@
+#Practicing Algorithms, Bubble Sort
+
+def bubble_sort(list_a):
+
+  indexing_length = len(list_a) - 1 #cant compare last number in the list since nothing is after it so -1
+
+  sorted = False #a variable to break us out of the loop when it is sorted
+
+  while not sorted: #as long as sorted is False
+  
+    sorted = True #Set to true if it is the last iteration it wont hit the if statement
+
+    for i in range(0, indexing_length): #loop to go through all the elements
+
+      if(list_a[i] > list_a[i+1]): #if the left item in the list is greater than the item to its right 
+
+        sorted = False #Then sorted is back to false to keep the loop going
+
+        list_a[i], list_a[i+1] = list_a[i+1], list_a[i] #Swap the two items
+
+  return list_a
+
+
+sequence = [4,6,8,3,2,5,7,8,9]
+print(bubble_sort(sequence))
