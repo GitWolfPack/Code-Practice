@@ -1,0 +1,39 @@
+#Practicing Algorithms, Reverse Linked List
+
+#Given the class declaration
+#Definition for singly-linked list
+#class ListNode:
+#   def __init__(self, x):
+#     self.val = x
+#     self.next = None
+
+class Solution:
+  
+  def reverseLinkedList(self, head):
+    
+    prev = None   #Setting variable for previous value to none or null
+
+    while head != None: #As long as head isnt null
+      temp = head   #temp variable to hold current value of head
+      head = head.next #iterate forward
+      temp.next = prev #then change the pointer to the original node
+      prev = temp #then change to the original node we were on for next iteration
+      
+    return prev
+
+
+
+    #previous = None
+     
+    #def reverseLinkedList(self, head):
+    
+      #while(head != None):
+
+        #next_node = head.next #1 = 2
+        #head.next = previous  #2 = 3
+        #previous = head       #3 = 4
+        #head = next_node      #4 = 1
+    
+      #return previous
+
+
