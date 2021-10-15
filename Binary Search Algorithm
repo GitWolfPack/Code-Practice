@@ -1,0 +1,30 @@
+#Practicing Algorithms, Binary Search
+
+def binary_search(sequence, item):
+
+  begin_index = 0   #Beginning index at 0
+  end_index = len(sequence) - 1 #Ending index is length - 1
+
+  while(begin_index <= end_index):
+
+    midpoint = begin_index + (end_index - begin_index) // 2 #Getting midpoint index for comparison
+
+    midpoint_value = sequence[midpoint] #value at midpoint index in sequence
+
+    if(midpoint_value == item): #if item is the midpoint
+      return midpoint #Then just return the midpoint
+    
+    elif(item < midpoint_value): #If the item is to the left of the midpoint in sequence
+      end_index = midpoint - 1 #ending position is now directly to the left of the endpoint
+    
+    else: #if the item is greater than midpoint we only need to check elements to the right
+      begin_index = midpoint + 1 #items to the right of value in the sequence by moving begin
+
+  return None #If the item is not found at all in sequence, happens when While loop breaks
+
+a_sequence = [2,4,5,6,7,8,9,10,12,13,14]
+a_item = 12 #an item that is in the list
+b_item = 3  #an item that is not in the list
+
+print(binary_search(a_sequence, a_item))
+print(binary_search(a_sequence, b_item))
