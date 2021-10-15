@@ -1,0 +1,20 @@
+#Practicing Algorithms, Insertion Sort
+
+
+def insertion_sort(list_a):
+
+  indexing_length = range(1, len(list_a)) #all the values after the first initial value
+
+  for i in indexing_length: #for all values in list
+    value_to_sort = list_a[i] #going one by one and getting values to sort them
+
+    #condition we want to look for is if the value to the left is higher than the value we are currently trying to sort
+    while(list_a[i-1] > value_to_sort and i > 0): #python has negative indexing so need to make sure i doesnt drop below 0
+      
+      list_a[i], list_a[i-1] = list_a[i-1], list_a[i] #just swapped the values of the elements that next to each other
+      i = i - 1 #incrementally stepping down the list to look at next item
+
+  return list_a
+
+sequence = [7,8,9,8,7,6,5,6,7,8,9,8,7,6,5,6,7,8]
+print(insertion_sort(sequence))
