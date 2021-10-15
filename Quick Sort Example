@@ -1,0 +1,26 @@
+#Practicing Algorithms, Quick Sort
+
+def quick_sort(sequence):
+  
+  length = len(sequence)
+  
+  if length <= 1: #allows us to skip short sequences
+    return sequence #return the sequence if it is length 1 or 0
+
+  else:   #if the sequence is longer than 1 element
+    pivot = sequence.pop() #remove and return last element w pop
+
+  items_greater = []  #list variable for above pivot
+  items_lower = []    #list variable for below pivot
+
+  for item in sequence: #Need to compare every item in sequence
+    if item > pivot:  #If the value is greater than the pivot
+      items_greater.append(item) #Then add it to the greater list
+    
+    else:   #If the value is less than OR EQUAL to the pivot
+      items_lower.append(item) #Then add it to the less list
+
+  return quick_sort(items_lower) + [pivot] + quick_sort(items_greater) #apply the alogrithm again until logic breaks
+
+a_sequence = [5,6,7,8,9,8,7,6,5,6,7,8,9,0]
+print(quick_sort(a_sequence))
